@@ -12,12 +12,7 @@
 				<div class="form-group">
 					<label>Title</label> <select name="title" class="form-control">
 						<c:choose>
-							<c:when test="${user.title eq 'Mr.'}">
-								<option value="Mr." selected="true">Mr.</option>
-								<option value="Mrs.">Mrs.</option>
-								<option value="Miss">Miss</option>
-								<option value="Dr">Dr.</option>
-							</c:when>
+						
 							<c:when test="${user.title eq 'Mrs.'}">
 								<option value="Mr.">Mr.</option>
 								<option value="Mrs." selected="true">Mrs.</option>
