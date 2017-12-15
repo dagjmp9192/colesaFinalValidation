@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<!-- configuration to enable annotation based validation -->
+	<mvc:annotation-driven />
+	<!-- configuration of controller and validators package -->
+	<context:component-scan base-package="validator" />
+	<context:component-scan base-package="controllers" />
+	<!-- tiles configuration -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles2.TilesView
+			</value>
+		</property>
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- configuration of DataSource bean. It will be used by DAO for creating 
+		connections. -->
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/colesa" />
+		<property name="username" value="coles" />
+		<property name="password" value="1234" />
+	</bean>
+	<!-- configuration of Dao objects. They will be used by controllers. -->
+	<bean id="udao" class="daos.UserDao">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	<bean id="mdao" class="daos.MessageDao">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	<bean id="pdao" class="daos.PostDao">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	<!-- multipart configuration for file upload -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- setting maximum upload size to 5 MB -->
+		<property name="maxUploadSize" value="5242880" />
+
+	</bean>
+</beans>
+
+	

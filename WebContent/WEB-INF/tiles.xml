@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+ <!DOCTYPE tiles-definitions PUBLIC 
+ "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" 
+ "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="vhome" template="/views/vhome.jsp">
+	</definition>
+
+	<definition name="base1" template="/views/visitorMasterPage.jsp">
+		<put-attribute name="header" value="/views/header.jsp" />
+		<put-attribute name="footer" value="/views/footer.jsp" />
+	</definition>
+	<definition name="base2" template="/views/userMasterPage.jsp">
+		<put-attribute name="header" value="/views/userHeader.jsp" />
+		<put-attribute name="footer" value="/views/footer.jsp" />
+	</definition>
+	<definition name="registered" extends="base1">
+		<put-attribute name="contents" value="/views/registered.jsp" />
+	</definition>
+	<definition name="regFailed" extends="base1">
+		<put-attribute name="contents" value="/views/regFailed.jsp" />
+	</definition>
+	<definition name="regForm" extends="base1">
+		<put-attribute name="contents" value="/views/register.jsp" />
+	</definition>
+	<definition name="relogin" extends="base1">
+		<put-attribute name="contents" value="/views/relogin.jsp" />
+	</definition>
+	<definition name="loggedOut" extends="base1">
+		<put-attribute name="contents" value="/views/loggedOut.jsp" />
+	</definition>
+	<definition name="home" extends="base2">
+		<put-attribute name="contents" value="/views/home.jsp" />
+	</definition>
+	<definition name="profile" extends="base2">
+		<put-attribute name="contents" value="/views/viewProfile.jsp" />
+	</definition>
+	<definition name="editProfile" extends="base2">
+		<put-attribute name="contents" value="/views/profile.jsp" />
+	</definition>
+	<definition name="userNotification" extends="base2">
+		<put-attribute name="contents" value="/views/msg.jsp" />
+	</definition>
+	<definition name="error" extends="base2">
+		<put-attribute name="contents" value="/views/handler.jsp" />
+	</definition>
+	<definition name="uploadImg" extends="base2">
+		<put-attribute name="contents" value="/views/imageUploader.jsp" />
+	</definition>
+	<definition name="lawyers" extends="base2">
+		<put-attribute name="contents" value="/views/lawyers.jsp" />
+	</definition>
+	<definition name="msgForm" extends="base2">
+		<put-attribute name="contents" value="/views/msgForm.jsp" />
+	</definition>
+	<definition name="displayReceivedMsg" extends="base2">
+		<put-attribute name="contents" value="/views/displayReceivedMsg.jsp" />
+	</definition>
+	<definition name="displaySentMsg" extends="base2">
+		<put-attribute name="contents" value="/views/displaySentMsg.jsp" />
+	</definition>
+	<definition name="newPost" extends="base2">
+		<put-attribute name="contents" value="/views/newPost.jsp" />
+	</definition>
+	<definition name="posts" extends="base2">
+		<put-attribute name="contents" value="/views/posts.jsp" />
+	</definition>
+	<definition name="allUsers" extends="base2">
+		<put-attribute name="contents" value="/views/allUsers.jsp" />
+	</definition>
+	<definition name="allPosts" extends="base2">
+		<put-attribute name="contents" value="/views/allPosts.jsp" />
+	</definition>
+	<definition name="allMsg" extends="base2">
+		<put-attribute name="contents" value="/views/allMsg.jsp" />
+	</definition>
+	<definition name="msgWithReplies" extends="base2">
+		<put-attribute name="contents" value="/views/msgWithReplies.jsp" />
+	</definition>
+</tiles-definitions>
