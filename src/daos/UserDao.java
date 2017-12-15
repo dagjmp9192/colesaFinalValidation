@@ -41,27 +41,8 @@ public class UserDao {
 		return name;
 	}
 	
-	public boolean IsMailIdExists(String mailId) 
-	{
-		boolean flag=false;
-		try{
-		Connection con=dataSource.getConnection();
-		//Statement object is created
-		PreparedStatement stmt=con.prepareStatement(
-		"select * from UserMaster where email=?");
-		stmt.setString(1, mailId);	
-	    ResultSet rset=stmt.executeQuery();
-		if(rset.next())
-			flag=true;
-		
-		con.close();
-		}catch(Exception e)
-		{
-			System.out.println(e);
-		}
-		return flag;
-		
-	}
+
+	
 	public List<User> allUsers()throws Exception{
 		ArrayList<User> list=new ArrayList<User>();
 		Connection con=dataSource.getConnection();
