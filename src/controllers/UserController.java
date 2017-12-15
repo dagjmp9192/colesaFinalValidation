@@ -26,43 +26,6 @@ public class UserController {
 	@Autowired
 	MailValidator validator;
 	
-	//method to display edit profile form
-	@RequestMapping("/editProfile.spring")
-	public String editProfile()
-	{
-		return "editProfile";
-		
-	}
-	
-	//to upload profile image
-		@RequestMapping(value="/uploadImg.spring",
-				method = RequestMethod.POST)
-		public ModelAndView upload(
-		@RequestParam("profileImage") MultipartFile file)
-				throws Exception
-		{
-			
-			
-			ModelAndView mav=new ModelAndView("userNotification");
-			
-			if(!file.isEmpty())
-			{
-				User u=(User)session.getAttribute("user");
-				String path=FileManager.save(file,u);
-				if(path.length()>0)
-				{
-				udao.updateProfileImage(u.getId(),path);
-				u.setImageUrl(path);
-				mav.addObject("message","Your profile image successfully uploaded.");
-				}
-				
-					
-			}
-			
-			return mav; 
-		}
-	
-	
 	
 	//method to process signup request
 	@RequestMapping("/register.spring")
@@ -157,6 +120,21 @@ public class UserController {
 		//Method to display user's profile
 		@RequestMapping("/profile.spring")
 		public String viewProfile()
+		{
+			return "profile";
+		}
+		
+		//Method to display user's profile
+		@RequestMapping("/profile.spring")
+		public String myyog()
+		{
+			return "profile";
+		}
+		
+		
+		//Method to display user's profile
+		@RequestMapping("/profile.spring")
+		public String bhushan()
 		{
 			return "profile";
 		}
